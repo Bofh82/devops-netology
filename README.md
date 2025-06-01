@@ -18,3 +18,5 @@ git diff
 13. Теперь можно сделать коммит git commit -m 'First commit'.
 ![](02-git-01/img/13.png)
 14. И ещё раз посмотреть выводы команд git status, git diff и git diff --staged.
+![](02-git-01/img/14.png)
+
