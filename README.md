@@ -21,90 +21,32 @@ git diff
 ![](02-git-01/img/01-14.png)
 
 ### Создание файлов .gitignore и второго коммита
-Вот основные правила и примеры работы синтаксиса gitignor:
-1. Базовые правила 
-    1. Игнорирование конкретных файлов
-        ```gitignore
-        filename.txt
-        ```
-        Будет проигнорирован файл filename.txt в корне проекта.
-
-    2. Игнорирование всех файлов с определённым расширением
-        ```gitignore
-        *.log
-        ```
-        Игнорируются все файлы, заканчивающиеся на .log (например, debug.log, error.log).
-
-    3. Игнорирование файлов в любом месте проекта
-        ```gitignore
-        **/temp/
-        ```
-        Игнорирует все директории с именем temp (например, /temp, src/temp, docs/images/temp).
-
-2. Специальные символы
-    1. / — Указывает на корень проекта
-        ```gitignore
-        /build/
-        ```
-        Игнорирует только папку /build в корне, но не src/build или другие вложенные.
-    2. * — Любое количество символов (кроме /)
-        ```gitignore
-        *.tmp
-        ```
-        Игнорирует все файлы, заканчивающиеся на .tmp (например, temp.tmp, backup.tmp).
-    3. ? — Один любой символ
-        ```gitignore
-        file?.txt
-        ```
-        Игнорирует file1.txt, fileA.txt, но не file10.txt.
-    4. [] — Диапазон символов
-        ```gitignore
-        file[0-9].txt
-        ```
-        Игнорирует file0.txt, file1.txt, ..., file9.txt, но не fileA.txt.
-    5. ! — Исключение (отмена игнорирования)
-        ```gitignore
-        *.txt
-        !important.txt
-        ```
-        Игнорирует все .txt файлы, кроме important.txt.
-
-3. Благодаря добавленному .gitignore файлу, следующие файлы и директории будут проигнорированы Git в будущем:
-    - Локальные директории Terraform:
-        ```gitignore
-        .terraform/
-        ```
-    - Файлы состояния Terraform:
+1. Благодаря добавленному .gitignore файлу, следующие файлы и директории будут проигнорированы Git в будущем:
+    - Локальная директория *.terraform/* и все ее содержимое
+    - Файлы состояния, содержащие в имени *.tfstate*:
         ```gitignore
         *.tfstate
         *.tfstate.*
         ```
-    - Файлы логов аварийных завершений:
+    - Файлы логов *crash.log* или начинающиеся на *crash.* и заканчивающиеся на *.log*:
         ```gitignore
         crash.log
         crash.*.log
         ```
-    - Файлы переменных Terraform (содержащие потенциально чувствительные данные):
+    - Файлы переменных Terraform (содержащие потенциально чувствительные данные), заканчивающиеся на *.tfvars* или **.tfvars.json*:
         ```gitignore
         *.tfvars
         *.tfvars.json
         ```
-    - Файлы переопределения ресурсов (override files):
+    - Файлы переопределения ресурсов *override.tf* и *override.tf.json*, а так же файлы заканчивающиеся на *.override.tf* и *.override.tf.json*:
         ```gitignore
         override.tf
         override.tf.json
         *_override.tf 
         *_override.tf.json
         ```
-    - Файлы блокировки состояния Terraform:
-        ```gitignore
-        .terraform.tfstate.lock.info
-        ```
-    - Файлы конфигурации CLI Terraform:
-        ```gitignore
-        .terraformrc
-        terraform.rc
-        ```
+    - Файлы блокировки *.terraform.tfstate.lock.info*
+    - Файлы конфигурации CLI *.terraformrc* и *terraform.rc*.
 
 ### Эксперимент с удалением и перемещением файлов (третий и четвёртый коммит)
 
