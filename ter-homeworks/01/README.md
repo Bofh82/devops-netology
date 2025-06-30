@@ -10,12 +10,15 @@
 
         Ответ: Секретную информацию можно хранить в terraform.tfvars или *.auto.tfvars, так как они добавлены в .gitignore.
 
+        В нашем случае хранить чувствительную информацию надо в файле personal.auto.tfvars
+
 3. Выполните код проекта. Найдите  в state-файле секретное содержимое созданного ресурса **random_password**, пришлите в качестве ответа конкретный ключ и его значение.
         
         Запускаем terraform apply для создания ресурсов.
         Ищем секретное значение в terraform.tfstate.
         Ответ: Ключ result содержит сгенерированный пароль.
-
+    ![](image4.png)
+        
 4. Раскомментируйте блок кода, примерно расположенный на строчках 29–42 файла **main.tf**.
 Выполните команду ```terraform validate```. Объясните, в чём заключаются намеренно допущенные ошибки. Исправьте их.
 
@@ -61,9 +64,8 @@
 8. Объясните, почему при этом не был удалён docker-образ **nginx:latest**. Ответ **ОБЯЗАТЕЛЬНО НАЙДИТЕ В ПРЕДОСТАВЛЕННОМ КОДЕ**, а затем **ОБЯЗАТЕЛЬНО ПОДКРЕПИТЕ** строчкой из документации [**terraform провайдера docker**](https://docs.comcloud.xyz/providers/kreuzwerker/docker/latest/docs).  (ищите в классификаторе resource docker_image )
 
         Ответ по коду:
-        В коде используется docker_image, но образ не удаляется, так как Terraform управляет только его скачиванием, а не удалением.
+        В коде ресурса docker_image установлен параметр keep_locally = true, поэтому образ не удаляется.
 
         Подтверждение из документации:
-        В документации провайдера Docker:
-
-        "The docker_image resource is used to pull an image, but it does not remove the image from the host when destroyed."
+        
+        keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation. If this is false, it will delete the image from the docker local storage on destroy operation.
