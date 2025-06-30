@@ -62,7 +62,7 @@
 
   ![](image-2.png)
     
-  [Отредактированный код](https://github.com/Bofh82/ter-homeworks/tree/master/02/src)
+   [Отредактированный код](https://github.com/Bofh82/ter-homeworks/tree/master/02/src)
 
 ## Задание 5
 
@@ -70,7 +70,7 @@
 2. Замените переменные внутри ресурса ВМ на созданные вами local-переменные.
 3. Примените изменения.
 
-  [Отредактированный код](https://github.com/Bofh82/ter-homeworks/tree/master/02/src)
+    [Отредактированный код](https://github.com/Bofh82/ter-homeworks/tree/master/02/src)
 
 ## Задание 6
 
@@ -107,5 +107,7 @@
   
 5. Найдите и закоментируйте все, более не используемые переменные проекта.
 6. Проверьте terraform plan. Изменений быть не должно.
+
+    [Отредактированный код](https://github.com/Bofh82/ter-homeworks/tree/master/02/src)
 
 ------
